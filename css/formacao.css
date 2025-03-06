@@ -1,0 +1,136 @@
+.cabecalho {
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.formacao {
+    padding: 100px 15px;
+}
+
+.formacao h2 {
+    margin-bottom: 5rem;
+    font-size: 1.6rem;
+}
+
+.timeline-items {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/*linha do tempo de formação*/
+.timeline-items::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--cor-destaque);
+    left: calc(50% - 1px);
+}
+
+
+.timeline-item {
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.timeline-item:last-child { /* Remove a margem inferior do último item */
+    margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd){ /*cria um efeito de linha do tempo alternada, onde os eventos são exibidos em ambos os lados da linha central.*/
+    padding-right: calc(50% + 30px);
+    text-align: right;
+}
+
+.timeline-item:nth-child(even){
+    padding-left: calc(50% + 30px);
+}
+.timeline-dot {
+    height: 21px;
+    width: 21px;
+    background-color: var(--cor-destaque);
+    box-shadow: 0 0 25px var(--cor-destaque),
+                0 0 50px var(--cor-destaque);
+    position: absolute;
+    left: calc(50% - 8px);
+    border-radius: 50%;
+    top: 10px;
+}
+
+.timeline-date {
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    margin: 6px 0 15px;
+}
+
+.timeline-content {
+    border: 3px solid var(--cor-destaque);
+    padding: 30px 50px;
+    border-radius: 4rem;
+    box-shadow: 0 0 10px var(--cor-destaque);
+    cursor: pointer;
+    transition: 1s;
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--cor-destaque);  
+}
+.timeline-content h3 {
+    font-size: 1.6rem;
+    color: white;
+    margin: 0 0 10px;
+    font-weight: 700;
+}
+/*Barra de rolagem*/
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-destaque);
+}
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color-01);
+    width: 50px;
+}
+
+
+@media (max-width: 768px) {
+    .timeline-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline-items::before {
+        left: 10px; /* Move a linha para a esquerda */
+    }
+
+    .timeline-item {
+        width: 100%;
+        text-align: left;
+        padding-left: 40px; /* Ajuste para a linha */
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding: 0;
+    }
+
+    .timeline-dot {
+        left: 0px; /* Alinha o ponto à esquerda */
+    }
+
+    .timeline-content {
+        padding: 20px;
+        border-radius: 1.5rem;
+        width: 90%;
+    }
+}

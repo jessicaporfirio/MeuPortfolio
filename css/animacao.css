@@ -1,0 +1,32 @@
+
+.sky {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    overflow: hidden;
+    pointer-events: none;/*Garante que a animação não interfira na interação com o conteúdo*/
+    z-index: 1000; /*Mantém a animação acima do conteúdo*/
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 3px;
+    background: white;
+    border-radius: 80%;
+    animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10px;
+        left: calc(100% * var(--star-position));
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        left: calc(100% * var(--star-position));
+        opacity: 0;
+    }
+}
